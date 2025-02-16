@@ -17,13 +17,18 @@ export default {
       borderImage: {
         "card-gradient":
           "linear-gradient(268.86deg, #430A65 0.17%, #6F0BB1 99.83%)",
+        "border-gradient":
+          "linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(0deg, rgba(240, 81, 255, 0.2), rgba(240, 81, 255, 0.2))",
       },
       colors: {
         background: "var(--background)",
+        inputText: "#8E08DD0D",
         foreground: "var(--foreground)",
         borderLight: "#ffffff26",
         textLight: "#FFFFFF80",
         alert: "#FFDADA",
+        plcaeholderWhite: "#FFFFFFB2",
+        borderPurple: "#430A65",
         transparent: "transparent",
         current: "currentColor",
         white: "#ffffff",
