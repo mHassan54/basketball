@@ -1,8 +1,9 @@
-import React from 'react'
+import React from "react";
 import NewsGrid from "./_components/NewsGrid";
+import { NewsItem } from "./_types";
 
 const News = () => {
-  const newsItems = [
+  const newsItems: NewsItem[] = [
     {
       id: 1,
       image: "/images/news/1.png",

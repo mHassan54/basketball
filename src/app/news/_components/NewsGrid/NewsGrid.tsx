@@ -2,21 +2,13 @@
 import React from "react";
 import Image from "next/image";
 import { truncateText } from "@/utils/helpers/truncateText";
-
-interface NewsItem {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-}
+import { NewsItem } from "../../_types";
 
 interface NewsGridProps {
   newsItems: NewsItem[];
 }
 
 const NewsGrid: React.FC<NewsGridProps> = ({ newsItems }) => {
-
-
   return (
     <div className="flex flex-col gap-5 p-6 text-white">
       <h2 className="text-2xl">Latest News</h2>

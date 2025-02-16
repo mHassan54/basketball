@@ -11,7 +11,7 @@ const Input: React.FC<
   return (
     <div
       className={`flex items-center w-[470px] h-[40px] rounded-[5px] gap-[10px] p-[10px] text-inputText border 
-       text-sm border-borderLight relative ${className}`}
+       text-sm border-searchBorder relative ${className}`}
     >
       {/* Left Icon */}
       {icon && iconPosition === "left" && (
