@@ -3,19 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --background-svg: url('/images/background.svg'); /* Path to SVG */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --background-svg: url('/images/background.svg'); /* Path to SVG */
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: var(--background) var(--background-svg) no-repeat center center;
+  background-size: cover; /* Adjust to your preference */
   font-family: Arial, Helvetica, sans-serif;
 }
