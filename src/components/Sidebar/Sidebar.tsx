@@ -13,7 +13,7 @@ const Sidebar = () => {
   const pathName = pathList[pathList.length - 1] ?? "";
 
   return (
-    <div className="flex flex-col w-[272px] border-r-[1px] border-borderLight">
+    <div className="flex flex-col w-[272px] h-[100vh] border-r-[1px] border-borderLight">
       <div className="text-xl font-normal tracking-normal border-b-[1px] border-borderLight text-white uppercase p-1 h-[80px] flex items-center justify-center">
         {appConstants?.appName}
       </div>

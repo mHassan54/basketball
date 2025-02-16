@@ -34,7 +34,7 @@ export default function RootLayout({
         className={`${poppins.className} ${inter.className} antialiased flex`}
       >
         <Sidebar />
-        <div className="flex flex-col min-h-[100vh] overflow-auto flex-1">
+        <div className="flex flex-col h-[100vh] overflow-auto flex-1">
           <Header />
           {children}
         </div>

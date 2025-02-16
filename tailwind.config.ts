@@ -26,6 +26,7 @@ export default {
         foreground: "var(--foreground)",
         borderLight: "#ffffff26",
         textLight: "#FFFFFF80",
+        subtitle: "#FFFFFF80",
         alert: "#FFDADA",
         plcaeholderWhite: "#FFFFFFB2",
         borderPurple: "#430A65",
