@@ -1,16 +1,30 @@
+"use client";
+import Image from "next/image";
+import Card from "@/components/Card";
+import { IoMdClose } from "react-icons/io";
+
 export default function SupportBox() {
+  const onClose = () => {
+    // TODO: onClose click action
+  };
+
   return (
-    <div className="bg-purple-800 p-4 rounded-lg text-sm space-y-2 relative">
+    <Card className="relative flex gap-3 text-white flex-col">
       <div className="flex items-center space-x-2">
-        <span className="text-lg">🎧</span>
-        <p className="font-medium">Need Support?</p>
+        <Image
+          src={"/icons/sidebar/supportIcon.png"}
+          alt={"support"}
+          width={24}
+          height={24}
+        />
+        <p className="font-medium text-base">Need Support?</p>
       </div>
-      <p className="text-gray-300">
-        Contact with one of our experts to get support.
-      </p>
-      <button className="absolute top-2 right-2 text-gray-300 text-sm">
-        ×
-      </button>
-    </div>
+      <p className="text-sm">Contact with one of our experts to get support.</p>
+      <IoMdClose
+        size={20}
+        className="absolute top-4 right-4 cursor-pointer"
+        onClick={onClose}
+      />
+    </Card>
   );
 }

@@ -8,16 +8,28 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "card-radial":
+          "radial-gradient(100% 100% at 50% 100%, rgba(187, 85, 255, 0.2) 0%, rgba(57, 10, 85, 0.2) 100%)",
+        "nav-gradient":
+          "linear-gradient(268.86deg, #430A65 0.17%, #6F0BB1 99.83%)",
+      },
+      borderImage: {
+        "card-gradient":
+          "linear-gradient(268.86deg, #430A65 0.17%, #6F0BB1 99.83%)",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
         borderLight: "#ffffff26",
+        textLight: "#FFFFFF80",
         alert: "#FFDADA",
         transparent: "transparent",
         current: "currentColor",
         white: "#ffffff",
         whiteLight: "#FFFFFFCC",
         black: "#000",
+        textGrey: "#CACFD8",
         dark: "#4D4D4D",
         primary: "#4EC3EC",
         secondary: "#95FDA8",
@@ -48,6 +60,7 @@ export default {
       },
       fontSize: {
         // header: ["20px", { lineHeight: "22px" }],
+        standard: ["12px", { lineHeight: "16px" }],
       },
       letterSpacing: {
         normal: "0%",
