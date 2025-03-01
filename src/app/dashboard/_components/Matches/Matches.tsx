@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Match } from "../../_types";
 import MatchCard from "./MatchCard";
-import Pagination from "./Pagination";
+import Pagination from "@/components/Pagination";
 
 type MatchesProps = {
   matches: Match[];

@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import { Match } from "../../_types";
 
@@ -12,7 +13,7 @@ const MatchCard: React.FC<MatchCardProps> = ({ match, onCLick }) => {
       </div>
       <div className="flex flex-col gap-2">
         {match?.teams?.map((team, index) => (
-          <>
+          <React.Fragment key={index}>
             <div key={index} className="flex justify-between items-center">
               <span className="flex items-center gap-[6px]">
                 <Image
@@ -28,7 +29,7 @@ const MatchCard: React.FC<MatchCardProps> = ({ match, onCLick }) => {
             {index !== match?.teams?.length - 1 && (
               <div className="border-b border-divider"></div>
             )}
-          </>
+          </React.Fragment>
         ))}
       </div>
       <button
