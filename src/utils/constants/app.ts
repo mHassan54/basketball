@@ -3,6 +3,7 @@ export const appConstants: Record<string, string> = {
   defaultTitle: "Dashboard",
   dashboard: "Homepage",
   "team-management": "Team Management",
+  "budget-tracking": "Team Management",
   "player-database": "Player Database",
   watchlist: "Watchlist",
   notifications: "Notifications",
