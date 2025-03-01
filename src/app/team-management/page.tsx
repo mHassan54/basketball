@@ -2,6 +2,8 @@ import React from "react";
 import RosterTable from "./_components/RosterManagement";
 import RosterProgress from "./_components/RosterProgress";
 import { redirect } from "next/navigation";
+import Watchlist from "./_components/WatchList";
+import { filters, players } from "./_utils/Watchlist";
 
 const progressData = {
   total: 125000,
@@ -31,6 +33,7 @@ const TeamManagement = () => {
         currency="$" // Pass any currency
         handleClick={handleClick} // Pass any function to handle click event
       />
+      <Watchlist title="Watchlist" filters={filters} players={players} />
     </div>
   );
 };

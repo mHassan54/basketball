@@ -57,6 +57,7 @@ export default {
         bgLight: "#F9F9FB",
         success: "#55C753",
         borderSecondary: "#ADABAB",
+        buttonBorder: "#9320DE99",
         gray: "#999999",
         textGray: "#828282",
         bgGray: "#FAFAFA",
@@ -70,6 +71,7 @@ export default {
         bgInput: "#F6F7FA",
         bgHero: "#F2FFFA",
         textLink: "#BFBFBF",
+        borderDarkPurple: "#7B29AC",
         tileBackground: "#FFFFFF0D",
       },
       fontFamily: {

@@ -14,7 +14,7 @@ const RosterTable = () => {
       <Table
         columns={rosterColumns}
         data={rosterData}
-        className="border border-searchBorder rounded-lg max-h-[600px]"
+        className="border border-searchBorder rounded-lg max-h-[500px]"
         tableClass=""
         headerClass="bg-borderPurple text-white"
         bodyClass="divide-y divide-tileBackground bg-tileBackground bg-opacity-[0.5]"
