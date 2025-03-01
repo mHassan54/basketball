@@ -5,6 +5,7 @@ import Matches from "./_components/Matches";
 import { sampleMatches } from "./_utils/matches";
 import PerformanceChart from "./_components/PerformanceChart";
 import WinLossChart from "./_components/WinLossChart";
+import TeamRankings from "./_components/TeamRankings";
 
 const data = [
   { date: "12 Dec", performance: 40, color: "#9320DE99" },
@@ -27,6 +28,7 @@ const Dashboard = () => {
           <PerformanceChart data={data} />
           <WinLossChart wins={10} losses={3} />
         </div>
+        <TeamRankings />
       </div>
       {/* right bar */}
       <div className="flex-1"></div>

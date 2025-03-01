@@ -52,6 +52,7 @@ export default {
         primaryLight: "#E5EFFF",
         lightOrange: "#FAF6F3",
         light: "#989898",
+        rankingTypeBg: "#430A6533",
         bgLight: "#F9F9FB",
         success: "#55C753",
         borderSecondary: "#ADABAB",
