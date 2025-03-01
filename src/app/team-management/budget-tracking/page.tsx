@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import React from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import BudgetTiles from "./_components/BudgetTiles";
+import CategoryBreakDown from "./_components/CategoryBreakDown";
+import RecentTransaction from "./_components/RecentTransaction";
 
 const BudgetTracking = () => {
   const handleBackClick = async () => {
@@ -26,6 +28,17 @@ const BudgetTracking = () => {
       </div>
 
       <BudgetTiles />
+
+      <div className="flex gap-[10px]">
+        {/* left side tables container */}
+        <div className="flex-[3] flex flex-col gap-[30px]">
+          <CategoryBreakDown />
+          <RecentTransaction />
+        </div>
+
+        {/* right side container */}
+        <div className="flex-1"></div>
+      </div>
     </div>
   );
 };

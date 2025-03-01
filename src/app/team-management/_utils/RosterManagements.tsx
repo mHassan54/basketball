@@ -16,15 +16,15 @@ export const rosterColumns: TableColumn<RosterItem & { action?: string }>[] = [
       return (
         <div className="flex gap-2">
           <Button
-            className="!p-1 rounded"
+            className="!p-1 rounded bg-borderPurple/30"
             icon={<FaPlus className="text-white text-xs" size={10} />}
           />
           <Button
-            className="!p-1 rounded"
+            className="!p-1 rounded bg-borderPurple/30"
             icon={<FaEdit className="text-white text-xs" size={10} />}
           />
           <Button
-            className="!p-1 rounded"
+            className="!p-1 rounded bg-borderPurple/30"
             icon={<FaTrash className="text-white text-xs" size={10} />}
           />
         </div>
