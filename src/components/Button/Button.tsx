@@ -2,7 +2,7 @@ import React from "react";
 
 type ButtonProps = {
   icon?: React.ReactNode;
-  title?: string;
+  title?: React.ReactNode;
   iconAlignment?: "right" | "left";
 };
 

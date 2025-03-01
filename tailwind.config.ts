@@ -71,6 +71,8 @@ export default {
         bgInput: "#F6F7FA",
         bgHero: "#F2FFFA",
         textLink: "#BFBFBF",
+        positive: "#1FC16B",
+        negative: "#C11F1F",
         borderDarkPurple: "#7B29AC",
         tileBackground: "#FFFFFF0D",
       },
