@@ -28,12 +28,16 @@ const Table = <T,>({
   bodyClass = "",
 }: TableProps<T>) => {
   return (
-    <div
-      className={`overflow-auto rounded-lg ${className}`}
-    >
-      <table className={`w-full border-collapse ${tableClass}`}>
-        {/* Table Header */}
-        <thead className={`text-white ${headerClass}`}>
+    <div className={`overflow-auto rounded-lg ${className}`}>
+      <table
+        className={`w-full border-collapse relative ${tableClass}`}
+        style={{ borderSpacing: 0 }}
+      >
+        {/* Table Header (Sticky) */}
+        <thead
+          className={`text-white ${headerClass}`}
+          style={{ position: "sticky", top: 0, zIndex: 10 }}
+        >
           <tr>
             {columns.map((column) => (
               <TableHeader

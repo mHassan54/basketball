@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import RosterTable from "./_components/RosterManagement";
 
 const TeamManagement = () => {
-  return <div>TeamManagement</div>;
-}
+  return (
+    <div className="flex px-8 py-5 gap-[30px]">
+      <RosterTable />
+    </div>
+  );
+};
 
 export default TeamManagement;

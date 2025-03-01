@@ -38,6 +38,7 @@ export default {
         whiteLight: "#FFFFFFCC",
         black: "#000",
         buttonBg: "#8E08DD33",
+        headerBg: "#8E08DD",
         darkPurple: "#631A93",
         textGrey: "#CACFD8",
         purpleFill: "#B037FF",
