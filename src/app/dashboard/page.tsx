@@ -6,6 +6,7 @@ import { sampleMatches } from "./_utils/matches";
 import PerformanceChart from "./_components/PerformanceChart";
 import WinLossChart from "./_components/WinLossChart";
 import TeamRankings from "./_components/TeamRankings";
+import DailyReaders from "./_components/DailyLeaders";
 
 const data = [
   { date: "12 Dec", performance: 40, color: "#9320DE99" },
@@ -19,7 +20,7 @@ const data = [
 
 const Dashboard = () => {
   return (
-    <div className="flex px-8 py-5">
+    <div className="flex px-8 py-5 gap-4">
       {/* left content */}
       <div className="flex-[3] flex flex-col gap-6">
         <Banner {...banner} />
@@ -31,7 +32,9 @@ const Dashboard = () => {
         <TeamRankings />
       </div>
       {/* right bar */}
-      <div className="flex-1"></div>
+      <div className="flex-1">
+        <DailyReaders />
+      </div>
     </div>
   );
 };
