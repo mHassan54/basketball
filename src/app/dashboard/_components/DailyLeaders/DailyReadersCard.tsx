@@ -70,10 +70,9 @@ const DailyLeadersCard = ({
               key={index}
               className="flex text-sm justify-between border-b border-tileBackground py-1"
             >
-              <span className="text-sm">
-                {leader.name}, {leader.team}
-              </span>
-              <span className="text-sm">{leader.value}</span>
+              <span className="text-sm flex-1">{leader.name}</span>
+              <span className="text-sm flex-1 text-center">{leader.team}</span>
+              <span className="text-sm flex-1 text-right">{leader.value}</span>
             </li>
           ))}
         </ul>

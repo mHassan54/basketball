@@ -7,7 +7,7 @@ export interface Player {
   image: string;
   number?: number;
   height?: number;
-  wight?: number;
+  weight?: number;
   salary?: number;
   contract?: string;
 }

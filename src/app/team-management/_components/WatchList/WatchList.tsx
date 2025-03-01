@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import { Player, PositionFilter } from "../../_types";
 import Accordion from "@/components/Accordion";
 import { FaMinus } from "react-icons/fa";
+import PlayerDetailsModal from "./PlayerDetailsModal";
 
 interface WatchlistProps {
   title: string;
@@ -16,14 +17,23 @@ interface WatchlistProps {
 const Watchlist: React.FC<WatchlistProps> = ({ title, filters, players }) => {
   const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
 
+  const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const filteredPlayers = useMemo(() => {
     return selectedFilter
       ? players.filter((player) => player.position === selectedFilter)
       : players;
   }, [players, selectedFilter]);
 
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedPlayer(null);
+  };
+
   const handlePlayerClick = (player: Player) => {
-    console.log(player);
+    setSelectedPlayer(player);
+    setIsModalOpen(true);
   };
 
   return (
@@ -86,6 +96,11 @@ const Watchlist: React.FC<WatchlistProps> = ({ title, filters, players }) => {
             </div>
           ))}
         </div>
+        <PlayerDetailsModal
+          player={selectedPlayer}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
       </Accordion>
     </div>
   );
