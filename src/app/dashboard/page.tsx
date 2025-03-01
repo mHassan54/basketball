@@ -7,6 +7,7 @@ import PerformanceChart from "./_components/PerformanceChart";
 import WinLossChart from "./_components/WinLossChart";
 import TeamRankings from "./_components/TeamRankings";
 import DailyReaders from "./_components/DailyLeaders";
+import LatestNews from "./_components/LatestNews";
 
 const data = [
   { date: "12 Dec", performance: 40, color: "#9320DE99" },
@@ -32,8 +33,9 @@ const Dashboard = () => {
         <TeamRankings />
       </div>
       {/* right bar */}
-      <div className="flex-1">
+      <div className="flex flex-col flex-1 gap-6">
         <DailyReaders />
+        <LatestNews />
       </div>
     </div>
   );
