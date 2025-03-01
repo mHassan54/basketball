@@ -16,7 +16,7 @@ const Banner: React.FC<BannerProps> = ({
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
-      className="relative w-full h-[400px] md:h-[500px] bg-bannerOverlay rounded-xl overflow-hidden"
+      className="relative w-full h-[312px] md:h-[312px] bg-bannerOverlay rounded-xl overflow-hidden"
     >
       {/* Text Content */}
       <div className="relative z-10 max-w-[50%] flex flex-col justify-center h-full px-6 md:px-12 text-white">
