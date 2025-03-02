@@ -10,7 +10,7 @@ const DownloadReport = () => {
       <h1 className="font-[500]">Download Report</h1>
       <Button
         label={
-          <div className="flex gap-2">
+          <div className="flex gap-2 text-xs items-center">
             <Image src={"/icons/pdf.png"} alt="pdf" width={14} height={8} />
             Downlaod PDF
           </div>
@@ -21,7 +21,7 @@ const DownloadReport = () => {
       />
       <Button
         label={
-          <div className="flex gap-2">
+          <div className="flex gap-2 text-xs items-center">
             <Image src={"/icons/xls.png"} alt="xls" width={14} height={8} />
             Downlaod Excel
           </div>
