@@ -1,3 +1,4 @@
+import MultiSelect from "./MultiSelect";
 import {
   Select,
   SelectContent,
@@ -23,6 +24,7 @@ export {
   SelectSeparator,
   SelectScrollUpButton,
   SelectScrollDownButton,
+  MultiSelect,
 };
 
 export default SelectWrapper;
