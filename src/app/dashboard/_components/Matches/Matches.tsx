@@ -18,9 +18,9 @@ const Matches: React.FC<MatchesProps> = ({ matches }) => {
     currentPage * itemsPerPage
   );
 
-  const onCLick = (match?: Match) => {
-    console.log(match)
-  }
+  const onClick = (match?: Match) => {
+    console.log(match);
+  };
 
   const handlePageChange = (page: number) => setCurrentPage(page);
 
@@ -29,7 +29,7 @@ const Matches: React.FC<MatchesProps> = ({ matches }) => {
       <h2 className="text-2xl font-bold uppercase">Latest Matches</h2>
       <div className="flex gap-4">
         {paginatedMatches.map((match, index) => (
-          <MatchCard key={index} match={match} onCLick={onCLick} />
+          <MatchCard key={index} match={match} onClick={onClick} />
         ))}
       </div>
 

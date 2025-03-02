@@ -501,8 +501,8 @@ const PlayerDatabaseContent = () => {
       </AccordionContainer>
 
       {/* filter actions */}
-      <div className="space-y-5">
-        <h2 className="flex items-center gap-2 text-xl">
+      <div className="space-y-3">
+        <h2 className="py-4 flex items-center gap-2 text-xl">
           <HiChevronDoubleDown size={20} />
           Adjustable Filters
         </h2>
@@ -517,7 +517,6 @@ const PlayerDatabaseContent = () => {
           />
         </div>
       </div>
-
 
       <PlayersTable />
     </div>

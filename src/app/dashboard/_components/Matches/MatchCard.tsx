@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { Match } from "../../_types";
 
-type MatchCardProps = { match: Match; onCLick?: (match?: Match) => void };
+type MatchCardProps = { match: Match; onClick?: (match?: Match) => void };
 
-const MatchCard: React.FC<MatchCardProps> = ({ match, onCLick }) => {
+const MatchCard: React.FC<MatchCardProps> = ({ match, onClick }) => {
   return (
     <div className="flex-1 bg-tileBackground text-white p-3 flex flex-col gap-4 rounded-md shadow-md w-[200px] border border-searchBorder">
       <div className="flex flex-col gap-[6px] p-[6px] text-white">
@@ -34,7 +34,7 @@ const MatchCard: React.FC<MatchCardProps> = ({ match, onCLick }) => {
       </div>
       <button
         className="w-full border border-searchBorder bg-buttonBg hover:bg-purple-600 text-white py-1 rounded-md"
-        onClick={() => onCLick?.(match)}
+        onClick={() => onClick?.(match)}
       >
         Boxscore
       </button>
