@@ -11,6 +11,8 @@ import {
   AccordionTrigger,
 } from "@/components/Accordion";
 import Slider from "@/components/Slider";
+import { HiChevronDoubleDown } from "react-icons/hi2";
+import Button from "@/components/Button";
 
 const MultiSelect = dynamic(() => import("@/components/Select/MultiSelect"), {
   ssr: false,
@@ -496,6 +498,24 @@ const PlayerDatabaseContent = () => {
           </AccordionContent>
         </AccordionItem>
       </AccordionContainer>
+
+      {/* filter actions */}
+      <div className="space-y-5">
+        <h2 className="flex items-center gap-2 text-xl">
+          <HiChevronDoubleDown size={20} />
+          Adjustable Filters
+        </h2>
+        <div className="flex gap-5">
+          <Button
+            label="Reset"
+            className="!px-9 rounded w-[180px] border-white flex !justify-center !items-center"
+          />
+          <Button
+            label="Apply"
+            className="!px-9 rounded w-[180px] border-searchBorder flex !justify-center !items-center bg-headerBg/30"
+          />
+        </div>
+      </div>
     </div>
   );
 };
