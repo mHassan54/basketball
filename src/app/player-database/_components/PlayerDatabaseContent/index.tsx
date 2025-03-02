@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Input from "@/components/Input";
 import { IoIosSearch } from "react-icons/io";
-// import { MultiSelect } from "@/components/Select";
 import { Option } from "@/types/Select";
 import dynamic from "next/dynamic";
 import {
@@ -55,20 +54,58 @@ const teams = [
   "Team 9",
 ];
 
+export const positionFilters: Option[] = [
+  { label: "All", value: "All" },
+  { label: "PG", value: "Point Guard" },
+  { label: "SG", value: "Shooting Guard" },
+  { label: "SF", value: "Small Forward" },
+  { label: "PF", value: "Power Forward" },
+  { label: "C", value: "Center" },
+];
+
+type Filters = {
+  countries: Option[];
+  leagues: Option[];
+  teams: Option[];
+  positions: Option[];
+  height: { to?: string; from?: string };
+  // 🔔 Add more filters here easily as needed
+};
+
+const initialFilters: Filters = {
+  countries: [],
+  leagues: [],
+  teams: [],
+  positions: [],
+  height: {},
+};
+
 const PlayerDatabaseContent = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [selectedCountries, setSelectedCountries] = useState<Option[]>([]);
-  const [selectedLeagues, setSelectedLeagues] = useState<Option[]>([]);
-  const [selectedTeams, setSelectedTeams] = useState<Option[]>([]);
+  const [filters, setFilters] = useState<Filters>(initialFilters);
 
-  const handleCountriesChange = (newValues: Option[]) => {
-    setSelectedCountries(newValues);
+  const handleFilterChange = (
+    filterName: keyof Filters,
+    newValues: Option[]
+  ) => {
+    const isAllSelected = newValues.some((item) => item.value === "All");
+
+    setFilters((prev) => ({
+      ...prev,
+      [filterName]: isAllSelected
+        ? [{ label: "All", value: "All" }]
+        : newValues,
+    }));
   };
-  const handleLeaguesChange = (newValues: Option[]) => {
-    setSelectedLeagues(newValues);
-  };
-  const handleTeamsChange = (newValues: Option[]) => {
-    setSelectedTeams(newValues);
+
+  const handleHeightChange = (key: "to" | "from", value: string) => {
+    setFilters((prev) => ({
+      ...prev,
+      height: {
+        ...prev.height,
+        [key]: value,
+      },
+    }));
   };
 
   return (
@@ -93,18 +130,20 @@ const PlayerDatabaseContent = () => {
             Filter
           </AccordionTrigger>
           <AccordionContent className="flex gap-[30px]">
-            {/* country filter */}
+            {/* Country filter */}
             <div className="space-y-[10px] flex-1">
               <h2>Country</h2>
               <MultiSelect
                 placeholder="Select Country..."
-                value={selectedCountries}
+                value={filters.countries}
                 options={countries.map((country) => ({
-                  label: String(country ?? ""),
-                  value: String(country ?? ""),
+                  label: country,
+                  value: country,
                 }))}
                 className="min-w-full"
-                onValueChange={handleCountriesChange}
+                onValueChange={(values) =>
+                  handleFilterChange("countries", values)
+                }
                 isMulti
               />
             </div>
@@ -113,13 +152,15 @@ const PlayerDatabaseContent = () => {
               <h2>League</h2>
               <MultiSelect
                 placeholder="Select League..."
-                value={selectedLeagues}
+                value={filters.leagues}
                 options={leagues.map((league) => ({
-                  label: String(league ?? ""),
-                  value: String(league ?? ""),
+                  label: league,
+                  value: league,
                 }))}
                 className="min-w-full"
-                onValueChange={handleLeaguesChange}
+                onValueChange={(values) =>
+                  handleFilterChange("leagues", values)
+                }
                 isMulti
               />
             </div>
@@ -128,15 +169,69 @@ const PlayerDatabaseContent = () => {
               <h2>Teams</h2>
               <MultiSelect
                 placeholder="Select Team..."
-                value={selectedTeams}
+                value={filters.teams}
                 options={teams.map((team) => ({
-                  label: String(team ?? ""),
-                  value: String(team ?? ""),
+                  label: team,
+                  value: team,
                 }))}
                 className="min-w-full"
-                onValueChange={handleTeamsChange}
+                onValueChange={(values) => handleFilterChange("teams", values)}
                 isMulti
               />
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      </AccordionContainer>
+
+      <AccordionContainer
+        type="single"
+        collapsible
+        className="w-full border-0"
+        defaultValue="biometrics"
+      >
+        <AccordionItem value="biometrics" className="border-0">
+          <AccordionTrigger className="flex flex-row-reverse justify-end gap-4 hover:no-underline text-xl">
+            Biometrics
+          </AccordionTrigger>
+          <AccordionContent className="flex gap-5">
+            <div className="flex-1">
+              {/* position filter */}
+              <div className="space-y-[10px] flex-1">
+                <h2>Position</h2>
+                <MultiSelect
+                  placeholder="Select Position..."
+                  value={filters.positions}
+                  options={positionFilters}
+                  className="min-w-full"
+                  onValueChange={(values) =>
+                    handleFilterChange("positions", values)
+                  }
+                  isMulti
+                />
+              </div>
+            </div>
+            <div className="flex-1">
+              {/* height filter */}
+              <div className="space-y-[10px] flex-1">
+                <h2>Height (inch)</h2>
+                <div className="flex items-center gap-5">
+                  <Input
+                    placeholder=""
+                    value={filters?.height?.from ?? ""}
+                    type="number"
+                    onChange={(e) => handleHeightChange("from", e.target.value)}
+                    className="border-white/50 w-full border-white"
+                  />
+                  <span className="text-md">to</span>
+                  <Input
+                    placeholder=""
+                    type="number"
+                    value={filters?.height?.to ?? ""}
+                    onChange={(e) => handleHeightChange("to", e.target.value)}
+                    className="border-white/50 w-full border-white"
+                  />
+                </div>
+              </div>
             </div>
           </AccordionContent>
         </AccordionItem>
