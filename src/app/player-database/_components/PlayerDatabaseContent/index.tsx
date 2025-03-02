@@ -66,6 +66,7 @@ type Filters = {
   teams: Option[];
   positions: Option[];
   height: { to?: string; from?: string };
+  weight: string;
   ageRange: [number, number];
   // 🔔 Add more filters here easily as needed
 };
@@ -77,6 +78,7 @@ const initialFilters: Filters = {
   positions: [],
   height: {},
   ageRange: [14, 40],
+  weight: "",
   // �� Add more filters here easily as needed
 };
 
@@ -86,7 +88,7 @@ const PlayerDatabaseContent = () => {
 
   const handleFilterChange = (
     filterName: keyof Filters,
-    newValues: Option[]
+    newValues: Option[] | string
   ) => {
     setFilters((prev) => ({
       ...prev,
@@ -256,7 +258,7 @@ const PlayerDatabaseContent = () => {
                 />
               </div>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 space-y-5">
               {/* height filter */}
               <div className="space-y-[10px] flex-1">
                 <h2>Height (inch)</h2>
@@ -277,6 +279,18 @@ const PlayerDatabaseContent = () => {
                     className="border-white/50 w-full border-white"
                   />
                 </div>
+              </div>
+
+              {/* weight filter  */}
+              <div className="space-y-[10px] flex-1">
+                <h2>Weight (lbs)</h2>
+                <Input
+                  placeholder="Weight"
+                  value={filters?.weight ?? ""}
+                  type="number"
+                  onChange={(e) => handleFilterChange("weight", e.target.value)}
+                  className="border-white/50 w-full border-white"
+                />
               </div>
             </div>
           </AccordionContent>
