@@ -16,7 +16,6 @@ const MultiSelect = dynamic(() => import("@/components/Select/MultiSelect"), {
 });
 
 const countries = [
-  "All",
   "United States",
   "China",
   "Canada",
@@ -29,7 +28,6 @@ const countries = [
 ];
 
 const leagues = [
-  "All",
   "League 1",
   "League 2",
   "League 3",
@@ -42,7 +40,6 @@ const leagues = [
 ];
 
 const teams = [
-  "All",
   "Team 1",
   "Team 2",
   "Team 3",
@@ -55,7 +52,6 @@ const teams = [
 ];
 
 export const positionFilters: Option[] = [
-  { label: "All", value: "All" },
   { label: "PG", value: "Point Guard" },
   { label: "SG", value: "Shooting Guard" },
   { label: "SF", value: "Small Forward" },
@@ -88,13 +84,9 @@ const PlayerDatabaseContent = () => {
     filterName: keyof Filters,
     newValues: Option[]
   ) => {
-    const isAllSelected = newValues.some((item) => item.value === "All");
-
     setFilters((prev) => ({
       ...prev,
-      [filterName]: isAllSelected
-        ? [{ label: "All", value: "All" }]
-        : newValues,
+      [filterName]: newValues,
     }));
   };
 
