@@ -68,6 +68,16 @@ type Filters = {
   height: { to?: string; from?: string };
   weight: string;
   ageRange: [number, number];
+  noOfGamesPlayed: string;
+  rebG: string;
+  astG: string;
+  ptsG: string;
+  fgPercentage: string;
+  minutesG: { to?: string; from?: string };
+  stlG: string;
+  blkG: string;
+  threePtPercentage: string;
+  ftPercentage: string;
   // 🔔 Add more filters here easily as needed
 };
 
@@ -79,6 +89,16 @@ const initialFilters: Filters = {
   height: {},
   ageRange: [14, 40],
   weight: "",
+  noOfGamesPlayed: "",
+  rebG: "",
+  astG: "",
+  ptsG: "",
+  fgPercentage: "",
+  minutesG: {},
+  stlG: "",
+  blkG: "",
+  threePtPercentage: "",
+  ftPercentage: "",
   // �� Add more filters here easily as needed
 };
 
@@ -103,10 +123,14 @@ const PlayerDatabaseContent = () => {
     }));
   };
 
-  const handleHeightChange = (key: "to" | "from", value: string) => {
+  const handleRangeChange = (
+    primaryKey: keyof Filters,
+    key: "to" | "from",
+    value: string
+  ) => {
     setFilters((prev) => ({
       ...prev,
-      height: {
+      [primaryKey]: {
         ...prev.height,
         [key]: value,
       },
@@ -124,6 +148,7 @@ const PlayerDatabaseContent = () => {
         className="border-white/50 w-full border-white"
       />
 
+      {/* Filters */}
       <AccordionContainer
         type="single"
         collapsible
@@ -188,6 +213,7 @@ const PlayerDatabaseContent = () => {
         </AccordionItem>
       </AccordionContainer>
 
+      {/* Biometrics */}
       <AccordionContainer
         type="single"
         collapsible
@@ -267,7 +293,9 @@ const PlayerDatabaseContent = () => {
                     placeholder="from"
                     value={filters?.height?.from ?? ""}
                     type="number"
-                    onChange={(e) => handleHeightChange("from", e.target.value)}
+                    onChange={(e) =>
+                      handleRangeChange("height", "from", e.target.value)
+                    }
                     className="border-white/50 w-full border-white"
                   />
                   <span className="text-md">to</span>
@@ -275,7 +303,9 @@ const PlayerDatabaseContent = () => {
                     placeholder="to"
                     type="number"
                     value={filters?.height?.to ?? ""}
-                    onChange={(e) => handleHeightChange("to", e.target.value)}
+                    onChange={(e) =>
+                      handleRangeChange("height", "to", e.target.value)
+                    }
                     className="border-white/50 w-full border-white"
                   />
                 </div>
@@ -291,6 +321,176 @@ const PlayerDatabaseContent = () => {
                   onChange={(e) => handleFilterChange("weight", e.target.value)}
                   className="border-white/50 w-full border-white"
                 />
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      </AccordionContainer>
+
+      {/* Stats Filters */}
+      <AccordionContainer
+        type="single"
+        collapsible
+        className="w-full border-0"
+        defaultValue="statsFilters"
+      >
+        <AccordionItem
+          value="statsFilters"
+          className="border-0 !overflow-hidden"
+        >
+          <AccordionTrigger className="flex flex-row-reverse justify-end gap-4 hover:no-underline text-xl">
+            Stats Filters
+          </AccordionTrigger>
+          <AccordionContent className="flex gap-5 !overflow-hidden">
+            {/* left */}
+            <div className="flex-1 space-y-5">
+              {/* # of Games Played  */}
+              <div className="space-y-[10px] flex-1">
+                <h2># of Games Played</h2>
+                <Input
+                  placeholder="# of Games Played"
+                  value={filters?.noOfGamesPlayed ?? ""}
+                  type="number"
+                  onChange={(e) =>
+                    handleFilterChange("noOfGamesPlayed", e.target.value)
+                  }
+                  className="border-white/50 w-full border-white"
+                />
+              </div>
+
+              {/* REB/G and AST/G */}
+              <div className="flex space-x-5 flex-1">
+                {/* REB/G  */}
+                <div className="space-y-[10px] flex-1">
+                  <h2>REB/G</h2>
+                  <Input
+                    placeholder=""
+                    value={filters?.rebG ?? ""}
+                    onChange={(e) => handleFilterChange("rebG", e.target.value)}
+                    className="border-white/50 w-full border-white"
+                  />
+                </div>
+
+                {/* AST/G  */}
+                <div className="space-y-[10px] flex-1">
+                  <h2>AST/G</h2>
+                  <Input
+                    placeholder=""
+                    value={filters?.astG ?? ""}
+                    onChange={(e) => handleFilterChange("astG", e.target.value)}
+                    className="border-white/50 w-full border-white"
+                  />
+                </div>
+              </div>
+
+              {/* PTS/G and FG% */}
+              <div className="flex space-x-5 flex-1">
+                {/* REB/G  */}
+                <div className="space-y-[10px] flex-1">
+                  <h2>PTS/G</h2>
+                  <Input
+                    placeholder=""
+                    value={filters?.ptsG ?? ""}
+                    onChange={(e) => handleFilterChange("ptsG", e.target.value)}
+                    className="border-white/50 w-full border-white"
+                  />
+                </div>
+
+                {/* FG%  */}
+                <div className="space-y-[10px] flex-1">
+                  <h2>FG%</h2>
+                  <Input
+                    placeholder=""
+                    value={filters?.fgPercentage ?? ""}
+                    onChange={(e) =>
+                      handleFilterChange("fgPercentage", e.target.value)
+                    }
+                    className="border-white/50 w-full border-white"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* right */}
+            <div className="flex-1 space-y-5">
+              {/* Minutes/G */}
+              <div className="space-y-[10px] flex-1">
+                <h2>Minutes/G</h2>
+                <div className="flex items-center gap-5">
+                  <Input
+                    placeholder="from"
+                    value={filters?.minutesG?.from ?? ""}
+                    type="number"
+                    onChange={(e) =>
+                      handleRangeChange("minutesG", "from", e.target.value)
+                    }
+                    className="border-white/50 w-full border-white"
+                  />
+                  <span className="text-md">to</span>
+                  <Input
+                    placeholder="to"
+                    type="number"
+                    value={filters?.minutesG?.to ?? ""}
+                    onChange={(e) =>
+                      handleRangeChange("minutesG", "to", e.target.value)
+                    }
+                    className="border-white/50 w-full border-white"
+                  />
+                </div>
+              </div>
+
+              {/* STL/G and BLK/G */}
+              <div className="flex space-x-5 flex-1">
+                {/* STL/G  */}
+                <div className="space-y-[10px] flex-1">
+                  <h2>STL/G</h2>
+                  <Input
+                    placeholder=""
+                    value={filters?.stlG ?? ""}
+                    onChange={(e) => handleFilterChange("stlG", e.target.value)}
+                    className="border-white/50 w-full border-white"
+                  />
+                </div>
+
+                {/* BLK/G  */}
+                <div className="space-y-[10px] flex-1">
+                  <h2>BLK/G</h2>
+                  <Input
+                    placeholder=""
+                    value={filters?.blkG ?? ""}
+                    onChange={(e) => handleFilterChange("blkG", e.target.value)}
+                    className="border-white/50 w-full border-white"
+                  />
+                </div>
+              </div>
+
+              {/* 3PT% and FT% */}
+              <div className="flex space-x-5 flex-1">
+                {/* 3PT%  */}
+                <div className="space-y-[10px] flex-1">
+                  <h2>3PT%</h2>
+                  <Input
+                    placeholder=""
+                    value={filters?.threePtPercentage ?? ""}
+                    onChange={(e) =>
+                      handleFilterChange("threePtPercentage", e.target.value)
+                    }
+                    className="border-white/50 w-full border-white"
+                  />
+                </div>
+
+                {/* FT%  */}
+                <div className="space-y-[10px] flex-1">
+                  <h2>FT%</h2>
+                  <Input
+                    placeholder=""
+                    value={filters?.ftPercentage ?? ""}
+                    onChange={(e) =>
+                      handleFilterChange("ftPercentage", e.target.value)
+                    }
+                    className="border-white/50 w-full border-white"
+                  />
+                </div>
               </div>
             </div>
           </AccordionContent>
