@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/Accordion";
+import Slider from "@/components/Slider";
 
 const MultiSelect = dynamic(() => import("@/components/Select/MultiSelect"), {
   ssr: false,
@@ -65,6 +66,7 @@ type Filters = {
   teams: Option[];
   positions: Option[];
   height: { to?: string; from?: string };
+  ageRange: [number, number];
   // 🔔 Add more filters here easily as needed
 };
 
@@ -74,6 +76,8 @@ const initialFilters: Filters = {
   teams: [],
   positions: [],
   height: {},
+  ageRange: [14, 40],
+  // �� Add more filters here easily as needed
 };
 
 const PlayerDatabaseContent = () => {
@@ -87,6 +91,13 @@ const PlayerDatabaseContent = () => {
     setFilters((prev) => ({
       ...prev,
       [filterName]: newValues,
+    }));
+  };
+
+  const handleAgeRangeChange = (newValues: [number, number]) => {
+    setFilters((prev) => ({
+      ...prev,
+      ageRange: newValues,
     }));
   };
 
@@ -186,7 +197,7 @@ const PlayerDatabaseContent = () => {
             Biometrics
           </AccordionTrigger>
           <AccordionContent className="flex gap-5">
-            <div className="flex-1">
+            <div className="flex-1 space-y-5">
               {/* position filter */}
               <div className="space-y-[10px] flex-1">
                 <h2>Position</h2>
@@ -201,6 +212,49 @@ const PlayerDatabaseContent = () => {
                   isMulti
                 />
               </div>
+
+              {/* age range */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h2>Age (range)</h2>
+                  <div className="flex space-x-2">
+                    <Input
+                      type="number"
+                      min={14}
+                      max={filters?.ageRange[1]}
+                      value={filters?.ageRange[0]?.toString()}
+                      onChange={(e) =>
+                        handleAgeRangeChange([
+                          parseInt(e.target.value),
+                          filters?.ageRange[1],
+                        ])
+                      }
+                      className="w-16 !p-0 !px-2 border-white"
+                    />
+                    <Input
+                      type="number"
+                      min={filters?.ageRange[0]}
+                      max={40}
+                      value={filters?.ageRange[1]?.toString()}
+                      onChange={(e) =>
+                        handleAgeRangeChange([
+                          filters?.ageRange[0],
+                          parseInt(e.target.value),
+                        ])
+                      }
+                      className="w-16 !p-0 !px-2 border-white"
+                    />
+                  </div>
+                </div>
+                <Slider
+                  min={14}
+                  max={40}
+                  step={1}
+                  value={filters?.ageRange}
+                  onValueChange={handleAgeRangeChange}
+                  className="w-full"
+                />
+              </div>
             </div>
             <div className="flex-1">
               {/* height filter */}
@@ -208,7 +262,7 @@ const PlayerDatabaseContent = () => {
                 <h2>Height (inch)</h2>
                 <div className="flex items-center gap-5">
                   <Input
-                    placeholder=""
+                    placeholder="from"
                     value={filters?.height?.from ?? ""}
                     type="number"
                     onChange={(e) => handleHeightChange("from", e.target.value)}
@@ -216,7 +270,7 @@ const PlayerDatabaseContent = () => {
                   />
                   <span className="text-md">to</span>
                   <Input
-                    placeholder=""
+                    placeholder="to"
                     type="number"
                     value={filters?.height?.to ?? ""}
                     onChange={(e) => handleHeightChange("to", e.target.value)}
