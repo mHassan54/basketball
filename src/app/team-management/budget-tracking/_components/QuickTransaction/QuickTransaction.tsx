@@ -33,7 +33,7 @@ const QuickTransaction = () => {
           placeholder="Amount Here........."
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
-          className="border-white/50"
+          className="border-white/50 w-full"
         />
       </div>
 
