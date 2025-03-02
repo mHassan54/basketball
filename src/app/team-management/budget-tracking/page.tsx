@@ -5,6 +5,9 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import BudgetTiles from "./_components/BudgetTiles";
 import CategoryBreakDown from "./_components/CategoryBreakDown";
 import RecentTransaction from "./_components/RecentTransaction";
+import Expenses from "./_components/Expenses";
+import QuickTransaction from "./_components/QuickTransaction";
+import DownloadReport from "./_components/DownloadReport";
 
 const BudgetTracking = () => {
   const handleBackClick = async () => {
@@ -37,7 +40,11 @@ const BudgetTracking = () => {
         </div>
 
         {/* right side container */}
-        <div className="flex-1"></div>
+        <div className="flex-1 flex flex-col gap-3">
+          <Expenses />
+          <QuickTransaction />
+          <DownloadReport />
+        </div>
       </div>
     </div>
   );
