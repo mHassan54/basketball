@@ -9,6 +9,13 @@ import Expenses from "./_components/Expenses";
 import QuickTransaction from "./_components/QuickTransaction";
 import DownloadReport from "./_components/DownloadReport";
 
+const expenses = [
+  { name: "Salaries", color: "#D946EF" },
+  { name: "Travel", color: "#9333EA" },
+  { name: "Equipment", color: "#8B5CF6" },
+  { name: "Marketing", color: "#A855F7" },
+];
+
 const BudgetTracking = () => {
   const handleBackClick = async () => {
     "use server";
@@ -41,7 +48,7 @@ const BudgetTracking = () => {
 
         {/* right side container */}
         <div className="flex-1 flex flex-col gap-3">
-          <Expenses />
+          <Expenses data={expenses} />
           <QuickTransaction />
           <DownloadReport />
         </div>
