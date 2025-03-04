@@ -3,9 +3,16 @@ import { TableColumn } from "@/types/Table";
 import Button from "@/components/Button";
 import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
 import { Player } from "../_types/Player";
+import Link from "next/link";
 
 export const playerColumns: TableColumn<Player & { action?: string }>[] = [
-  { label: "Name", key: "name" },
+  {
+    label: "Name",
+    key: "name",
+    cellRenderer: (val) => (
+      <Link href={"/player-database/player-profile"}>{val}</Link>
+    ),
+  },
   { label: "Position", key: "position" },
   { label: "Age", key: "age" },
   { label: "Country", key: "country" },

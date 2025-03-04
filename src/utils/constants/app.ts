@@ -10,4 +10,5 @@ export const appConstants: Record<string, string> = {
   news: "News",
   settings: "Settings",
   support: "Support",
+  "player-profile": "Player Profile",
 };
