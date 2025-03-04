@@ -81,14 +81,16 @@ const Watchlist: React.FC<WatchlistProps> = ({ title, filters, players }) => {
               />
               <div className="flex flex-col text-white w-full">
                 <div className="flex justify-between items-center w-full">
-                  <h3 className="font-bold">{player?.name}</h3>
+                  <h3 className="font-bold break-all break-words">
+                    {player?.name}
+                  </h3>
                   <Button
                     className="!p-2 text-white border-none text-xl"
                     icon={<FaMinus />}
                     onClick={() => handlePlayerClick(player)}
                   />
                 </div>
-                <p className="text-sm">
+                <p className="text-sm text-wrap break-all break-words">
                   {player?.position} | Age: {player?.age} | Country:{" "}
                   {player?.country}
                 </p>

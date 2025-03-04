@@ -39,7 +39,7 @@ const BudgetTracking = () => {
 
       <BudgetTiles />
 
-      <div className="flex gap-[10px]">
+      <div className="flex flex-col lg:flex-row gap-[10px]">
         {/* left side tables container */}
         <div className="flex-[3] flex flex-col gap-[30px]">
           <CategoryBreakDown />

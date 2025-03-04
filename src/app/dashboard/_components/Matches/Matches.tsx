@@ -27,7 +27,7 @@ const Matches: React.FC<MatchesProps> = ({ matches }) => {
   return (
     <div className="flex flex-col gap-5 text-white">
       <h2 className="text-2xl font-bold uppercase">Latest Matches</h2>
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap">
         {paginatedMatches.map((match, index) => (
           <MatchCard key={index} match={match} onClick={onClick} />
         ))}

@@ -26,7 +26,7 @@ const Dashboard = () => {
       <div className="flex-[3] flex flex-col gap-6">
         <Banner {...banner} />
         <Matches matches={sampleMatches} />
-        <div className="flex gap-6">
+        <div className="flex flex-col gap-6 lg:flex-row">
           <PerformanceChart data={data} />
           <WinLossChart wins={10} losses={3} />
         </div>
