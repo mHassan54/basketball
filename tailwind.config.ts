@@ -35,6 +35,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       colors: {
+        purplish: "#6F0BB1",
         background: "var(--background)",
         inputText: "#8E08DD0D",
         foreground: "var(--foreground)",
