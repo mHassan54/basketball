@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import WatchListFilters from "../WatchlistFilters";
 import { Filters } from "../../_types/Filter";
 import { Option } from "@/types/Select";
+import PlayerList from "../PlayerList";
 
 const initialFilters: Filters = {
   priorities: [],
@@ -29,6 +30,7 @@ const WatchlistContent = () => {
         filters={filters}
         handleFilterChange={handleFilterChange}
       />
+      <PlayerList />
     </div>
   );
 };

@@ -29,13 +29,19 @@ const DailyLeadersCard = ({
       <div className="flex flex-col gap-2">
         <h2 className="text-2xl uppercase font-semibold text-white">{title}</h2>
         {/* Player Image */}
-        <Image
-          src={imageUrl}
-          alt={playerName}
-          width={400}
-          height={200}
-          className="rounded-lg"
-        />
+        <div className="relative h-auto">
+          <Image
+            src={imageUrl}
+            alt={playerName}
+            // width={359}
+            // height={0}
+            // style={{ height: "auto" }}
+            layout="responsive"
+            width={400}
+            height={200}
+            className="rounded-lg"
+          />
+        </div>
       </div>
 
       <div className="flex flex-col gap-3">

@@ -72,7 +72,7 @@ export default {
         success: "#55C753",
         borderSecondary: "#ADABAB",
         buttonBorder: "#9320DE99",
-        gray: "#999999",
+        gray: "#D9D9D9",
         textGray: "#828282",
         bgGray: "#FAFAFA",
         bgSidebar: "#EEF2F7",
