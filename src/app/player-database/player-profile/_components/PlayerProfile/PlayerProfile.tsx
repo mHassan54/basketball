@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Button from "@/components/Button";
 import { FaEdit } from "react-icons/fa";
-import { Player } from "@/app/team-management/_types";
+import { Player } from "../../types/Player";
 
 type PlayerProfileModalProps = {
   player: Player | null;
