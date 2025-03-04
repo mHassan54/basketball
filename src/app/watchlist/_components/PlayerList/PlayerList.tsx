@@ -137,7 +137,7 @@ export default function PlayerList() {
                 </div>
                 <h3
                   className={cn(
-                    "text-lg font-bold",
+                    "text-lg font-bold text-wrap break-words",
                     isExpanded && "text-[28px]"
                   )}
                 >
