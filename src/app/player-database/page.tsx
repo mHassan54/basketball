@@ -1,5 +1,14 @@
-import React from 'react'
-import PlayerDatabaseContent from "./_components/PlayerDatabaseContent";
+"use server";
+import React from "react";
+import dynamic from "next/dynamic";
+
+const PlayerDatabaseContent = dynamic(
+  () => import("./_components/PlayerDatabaseContent"),
+  {
+    ssr: true,
+    loading: () => <>Loading...</>,
+  }
+);
 
 const PlayerDatabase = () => {
   return (
