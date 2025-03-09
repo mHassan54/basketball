@@ -248,7 +248,7 @@ const players: Player[] = [
 ];
 
 export default function PlayerList() {
-  const [expandedId, setExpandedId] = useState<number | string | null>(1); // First item opened by default
+  const [expandedId, setExpandedId] = useState<number | string | null>(null); // First item opened by default
 
   // eslint-disable-next-line
   const handleToggle = (id: number | string) => {
