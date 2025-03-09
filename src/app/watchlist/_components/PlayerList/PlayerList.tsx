@@ -283,7 +283,7 @@ export default function PlayerList() {
                 className="rounded border border-borderDarkPurple"
               />
               <div className="flex flex-col">
-                <div className="flex gap-2">
+                {/* <div className="flex gap-2">
                   <span
                     className={cn(
                       "text-[8px] border border-borderDarkPurple bg-borderPurple/20 px-2 py-0.5 rounded",
@@ -300,7 +300,7 @@ export default function PlayerList() {
                   >
                     {player.type}
                   </span>
-                </div>
+                </div> */}
                 <h3
                   className={cn(
                     "text-lg font-bold text-wrap break-words",
