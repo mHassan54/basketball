@@ -80,17 +80,183 @@ const players: Player[] = [
     age: 29,
     country: "USA",
   },
+  {
+    id: 6,
+    name: "Hermannsson Martin",
+    status: "Live",
+    type: "Medium",
+    image: "/images/players/1.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 7,
+    name: "Koumadje Christ",
+    status: "Schedule",
+    type: "Medium",
+    image: "/images/players/2.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 8,
+    name: "Mattisseck Jonas",
+    status: "Upcoming",
+    type: "Medium",
+    image: "/images/players/3.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 9,
+    name: "Dorian Grosber",
+    status: "Upcoming",
+    type: "Medium",
+    image: "/images/players/4.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 10,
+    name: "Delow Marte",
+    status: "Upcoming",
+    type: "Medium",
+    image: "/images/players/5.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 11,
+    name: "Hermannsson Martin",
+    status: "Live",
+    type: "Medium",
+    image: "/images/players/1.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 12,
+    name: "Koumadje Christ",
+    status: "Schedule",
+    type: "Medium",
+    image: "/images/players/2.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 13,
+    name: "Mattisseck Jonas",
+    status: "Upcoming",
+    type: "Medium",
+    image: "/images/players/3.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 14,
+    name: "Dorian Grosber",
+    status: "Upcoming",
+    type: "Medium",
+    image: "/images/players/4.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 15,
+    name: "Delow Marte",
+    status: "Upcoming",
+    type: "Medium",
+    image: "/images/players/5.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 16,
+    name: "Hermannsson Martin",
+    status: "Live",
+    type: "Medium",
+    image: "/images/players/1.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 17,
+    name: "Koumadje Christ",
+    status: "Schedule",
+    type: "Medium",
+    image: "/images/players/2.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 18,
+    name: "Mattisseck Jonas",
+    status: "Upcoming",
+    type: "Medium",
+    image: "/images/players/3.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 19,
+    name: "Dorian Grosber",
+    status: "Upcoming",
+    type: "Medium",
+    image: "/images/players/4.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
+  {
+    id: 20,
+    name: "Delow Marte",
+    status: "Upcoming",
+    type: "Medium",
+    image: "/images/players/5.png",
+    team: "Alba Berlin",
+    position: "Guard",
+    age: 29,
+    country: "USA",
+  },
 ];
 
 export default function PlayerList() {
   const [expandedId, setExpandedId] = useState<number | string | null>(1); // First item opened by default
 
+  // eslint-disable-next-line
   const handleToggle = (id: number | string) => {
     setExpandedId((prev) => (prev === id ? null : id));
   };
 
   return (
-    <div className="py-5 space-y-3">
+    <div className="py-6 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {players.map((player) => {
         const isExpanded = player.id === expandedId;
 
@@ -102,12 +268,12 @@ export default function PlayerList() {
               isExpanded && "bg-tileBackground"
             )}
           >
-            <button
+            {/* <button
               onClick={() => handleToggle(player?.id ?? "")}
               className="absolute text-purple-400 font-bold right-5"
             >
               {isExpanded ? <IoMdRemove size={22} /> : <IoMdAdd size={22} />}
-            </button>
+            </button> */}
             <div className="flex items-center gap-3">
               <Image
                 src={player?.image ?? ""}
