@@ -65,23 +65,22 @@ const DailyLeadersCard = ({
 
           {/* Player Info */}
           <div>
-            <h3 className="text-2xl">{playerName}</h3>
+            <h3 className="text-xl">{playerName}</h3>
             <p className="text-sm text-purpleFill">{playerInfo}</p>
           </div>
         </div>
         {/* Leaderboard */}
-        <ul className="space-y-1 text-sm">
-          {leaders.map((leader, index) => (
-            <li
-              key={index}
-              className="flex text-sm justify-between border-b border-tileBackground py-1"
-            >
-              <span className="text-sm flex-1">{leader.name}</span>
-              <span className="text-sm flex-1 text-center">{leader.team}</span>
-              <span className="text-sm flex-1 text-right">{leader.value}</span>
-            </li>
-          ))}
-        </ul>
+        <table className="w-full text-sm border-collapse">
+          <tbody>
+            {leaders.map((leader, index) => (
+              <tr key={index} className="border-b border-tileBackground">
+                <td className="py-1 w-2/5">{leader.name}</td>
+                <td className="py-1 w-2/5 text-left">{leader.team}</td>
+                <td className="py-1 w-1/5 text-right">{leader.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
         {/* Date */}
         <p className="pb-3 border-b border-tileBackground text-sm text-white text-center">
           {date}

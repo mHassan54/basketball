@@ -96,30 +96,32 @@ const LatestNews = () => {
   return (
     <div className="flex flex-col overflow-auto gap-4 flex-1">
       <h1 className="text-2xl">Latest News</h1>
-      {newsItems?.slice(0,3).map((item) => (
-        <div key={item.id} className="overflow-hidden flex flex-col gap-3">
-          <div className="relative h-auto">
-            <Image
-              src={item.image}
-              alt={item.title}
-              // width={359}
-              // height={0}
-              // style={{ height: "auto" }}
-              layout="responsive"
-              width={359}
-              height={200}
-            />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {newsItems?.slice(0, 6).map((item) => (
+          <div key={item.id} className="overflow-hidden flex flex-col gap-3">
+            <div className="relative h-auto">
+              <Image
+                src={item.image}
+                alt={item.title}
+                // width={359}
+                // height={0}
+                // style={{ height: "auto" }}
+                layout="responsive"
+                width={359}
+                height={200}
+              />
+            </div>
+            <div className="flex flex-col gap-1">
+              <h3 className="font-normal text-[22px] uppercase text-center">
+                {item.title}
+              </h3>
+              <p className="text-lg text-subtitle text-center">
+                {truncateText(item.description, 70)}
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col gap-1">
-            <h3 className="font-normal text-[22px] uppercase text-center">
-              {item.title}
-            </h3>
-            <p className="text-lg text-subtitle text-center">
-              {truncateText(item.description, 70)}
-            </p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
